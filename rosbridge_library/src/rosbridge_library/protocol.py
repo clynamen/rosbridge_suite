@@ -117,6 +117,9 @@ class Protocol:
         message_string -- the wire-level message sent by the client
 
         """
+        if type(message_string) == bytes:
+            print("decoding ascii")
+            message_string = message_string.decode('ascii')
         self.buffer = self.buffer + message_string
         msg = None
 
